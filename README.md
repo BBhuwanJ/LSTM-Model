@@ -22,8 +22,8 @@ A powerful Streamlit-based web application for forecasting stock prices using an
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/stock-lstm-forecasting.git
-cd stock-lstm-forecasting
+git clone https://github.com/BBhuwanJ/LSTM-Model.git
+cd lstm-model
 
 # Install dependencies
 pip install -r requirements.txt
