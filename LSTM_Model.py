@@ -32,7 +32,14 @@ def build_lstm_model(window_size):
 
 st.title("Stock Price Forecasting using LSTM Model")
 
-uploaded_file = st.file_uploader("Upload CSV file", type=["csv"])
+option = st.selectbox("Choose Data Source", ("Upload CSV file", "Use Sample Data"))
+
+uploaded_file = None
+if option == "Upload CSV file":
+    uploaded_file = st.file_uploader("Upload CSV file", type=["csv"])
+elif option == "Use Sample Data":
+    uploaded_file = "SampleData.csv"
+
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
     df['Date'] = pd.to_datetime(df['Date'])
@@ -62,9 +69,7 @@ if uploaded_file is not None:
     if st.button("Train Model"):
         with st.spinner("Training..."):
             st.session_state.model = build_lstm_model(window_size)
-            # Increase patience to allow more epochs for convergence
             early_stopping = EarlyStopping(monitor='val_loss', patience=20, restore_best_weights=True)
-            # Increase max epochs to 200
             history = st.session_state.model.fit(
                 X_train, y_train,
                 validation_data=(X_test, y_test),
