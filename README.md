@@ -26,13 +26,21 @@ https://bbhuwanj-lstm.streamlit.app/
 
 ## 🛠️ Installation
 
-```bash
+
 # Clone the repository
+```bash
 git clone https://github.com/BBhuwanJ/LSTM-Model.git
+```
+```bash
 cd lstm-model
+```
 
 # Install dependencies
+```bash
 pip install -r requirements.txt
+```
 
 # Run the Model
+```bash
 streamlit run LSTM_Model.py
+```
